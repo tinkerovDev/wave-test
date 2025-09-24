@@ -6,13 +6,13 @@
 .input {
     width: 420px;
     height: 42px;
-    padding: 0 12px 0 10px;
+    padding: 0 12px 0 34px; /* 12px (icon left) + 16px (icon) + ~6px gap */
 	background: #1a1a1a;
 	border-radius: 4px;
     color: #808080;
     border: none;
     outline: none;
-    font-size: 16px;
+	font-size: 16px;
     font-weight: 600;
     line-height: 42px;
 }
@@ -31,7 +31,7 @@
 
 .icon {
 	position: absolute; 
-	left: 10px; 
+	left: 12px; 
 	top: 50%; 
 	transform: translateY(-50%); 
     color: #808080;

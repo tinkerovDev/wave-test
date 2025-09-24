@@ -3,13 +3,14 @@ import styles from './SearchBar.module.css';
 import type { RootState } from '../../store';
 import { setSearch } from '../../store/itemsSlice';
 import { t } from '../../i18n';
+import { asset } from '../../utils/assets';
 
 export const SearchBar = () => {
 	const dispatch = useDispatch();
 	const search = useSelector((s: RootState) => s.items.search);
 	return (
 		<div className={styles.wrapper}>
-			<img src="/items/search.png" alt="" className={styles.icon} />
+			<img src={asset('items/search.png')} alt="" className={styles.icon} />
 			<input
 				className={styles.input}
 				placeholder={t('search.placeholder')}

@@ -33,43 +33,20 @@ interface ItemsState {
 	isLoading: boolean;
 }
 
-const imagePath = (file: string) => `/items/${file}`;
+const imagePath = (file: string) => `${import.meta.env.BASE_URL}items/${file}`;
 
 const initialItems: Item[] = [
-	{ id: 1, name: 'Арбалет', description: 'Очень точное оружие дальнего боя', category: 'оружие', image: imagePath('arbalet.png'), details: { damage: 45, durability: 200, weight: 5.2 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, weight: 3.8 } },
-	{ id: 3, name: 'Бумага для исследования', description: 'Используется в исследовательском столе для создания чертежей', category: 'ресурс', image: imagePath('paper.png'), details: { uses: 10, weight: 0.1 } },
-	{ id: 4, name: 'Плащ Дракулы', description: 'Прочная толстая верхняя одежда, обеспечивающая надежную защиту одевающему...', category: 'одежда', image: imagePath('raincoat.png'), details: { defense: 35, durability: 180, weight: 2.5 } },
-	{ id: 5, name: 'Бинт', description: 'Лечите себя или других с помощью этого бинта. Левой кнопки мыши Вы лечите себ...', category: 'медикаменты', image: imagePath('bandage.png'), details: { healing: 25, uses: 1, weight: 0.2 } },
-	{ id: 5, name: 'Бинт', description: 'Лечите себя или других с помощью этого бинта. Левой кнопки мыши Вы лечите себ...', category: 'медикаменты', image: imagePath('bandage.png'), details: { healing: 25, uses: 1, weight: 0.2 } },
-	{ id: 5, name: 'Бинт', description: 'Лечите себя или других с помощью этого бинта. Левой кнопки мыши Вы лечите себ...', category: 'медикаменты', image: imagePath('bandage.png'), details: { healing: 25, uses: 1, weight: 0.2 } },
-	{ id: 5, name: 'Бинт', description: 'Лечите себя или других с помощью этого бинта. Левой кнопки мыши Вы лечите себ...', category: 'медикаменты', image: imagePath('bandage.png'), details: { healing: 25, uses: 1, weight: 0.2 } },
-	{ id: 5, name: 'Бинт', description: 'Лечите себя или других с помощью этого бинта. Левой кнопки мыши Вы лечите себ...', category: 'медикаменты', image: imagePath('bandage.png'), details: { healing: 25, uses: 1, weight: 0.2 } },
-	{ id: 5, name: 'Бинт', description: 'Лечите себя или других с помощью этого бинта. Левой кнопки мыши Вы лечите себ...', category: 'медикаменты', image: imagePath('bandage.png'), details: { healing: 25, uses: 1, weight: 0.2 } },
-	{ id: 5, name: 'Бинт', description: 'Лечите себя или других с помощью этого бинта. Левой кнопки мыши Вы лечите себ...', category: 'медикаменты', image: imagePath('bandage.png'), details: { healing: 25, uses: 1, weight: 0.2 } },
-	{ id: 5, name: 'Бинт', description: 'Лечите себя или других с помощью этого бинта. Левой кнопки мыши Вы лечите себ...', category: 'медикаменты', image: imagePath('bandage.png'), details: { healing: 25, uses: 1, weight: 0.2 } },
-	{ id: 5, name: 'Бинт', description: 'Лечите себя или других с помощью этого бинта. Левой кнопки мыши Вы лечите себ...', category: 'медикаменты', image: imagePath('bandage.png'), details: { healing: 25, uses: 1, weight: 0.2 } },
-	{ id: 5, name: 'Бинт', description: 'Лечите себя или других с помощью этого бинта. Левой кнопки мыши Вы лечите себ...', category: 'медикаменты', image: imagePath('bandage.png'), details: { healing: 25, uses: 1, weight: 0.2 } },
-	{ id: 5, name: 'Бинт', description: 'Лечите себя или других с помощью этого бинта. Левой кнопки мыши Вы лечите себ...', category: 'медикаменты', image: imagePath('bandage.png'), details: { healing: 25, uses: 1, weight: 0.2 } },
-	{ id: 5, name: 'Бинт', description: 'Лечите себя или других с помощью этого бинта. Левой кнопки мыши Вы лечите себ...', category: 'медикаменты', image: imagePath('bandage.png'), details: { healing: 25, uses: 1, weight: 0.2 } },
-	{ id: 5, name: 'Бинт', description: 'Лечите себя или других с помощью этого бинта. Левой кнопки мыши Вы лечите себ...', category: 'медикаменты', image: imagePath('bandage.png'), details: { healing: 25, uses: 1, weight: 0.2 } },
-	{ id: 5, name: 'Бинт', description: 'Лечите себя или других с помощью этого бинта. Левой кнопки мыши Вы лечите себ...', category: 'медикаменты', image: imagePath('bandage.png'), details: { healing: 25, uses: 1, weight: 0.2 } }
+	{ id: 1, name: 'Арбалет', description: 'Очень точное оружие дальнего боя', category: 'оружие', image: imagePath('arbalet.png'), details: { damage: 45, durability: 200, rarity: 'редкий' } },
+	{ id: 2, name: 'Винтовка', description: 'Мощная, точная и дальнобойная винтовка.', category: 'оружие', image: imagePath('bolt.png'), details: { damage: 65, durability: 150, rarity: 'эпический' } },
+	{ id: 3, name: 'Лук', description: 'Тихий выстрел на средней дистанции.', category: 'оружие', image: imagePath('bow.png'), details: { damage: 28, durability: 100, rarity: 'обычный' } },
+	{ id: 4, name: 'Топор', description: 'Может использоваться как оружие и инструмент.', category: 'оружие', image: imagePath('axe.png'), details: { damage: 32, durability: 180, rarity: 'редкий' } },
+	{ id: 5, name: 'Бумага для исследования', description: 'Используется в исследовательском столе для создания чертежей', category: 'ресурс', image: imagePath('paper.png'), details: { rarity: 'обычный' } },
+	{ id: 6, name: 'Камень', description: 'Камень для улучшений дома и крафта.', category: 'ресурс', image: imagePath('stone.png'), details: { rarity: 'эпический' } },
+	{ id: 7, name: 'Плащ Дракулы', description: 'Прочная толстая верхняя одежда, обеспечивающая надежную защиту одевающему...', category: 'одежда', image: imagePath('raincoat.png'), details: { defense: 35, durability: 180, rarity: 'редкий' } },
+	{ id: 8, name: 'Шлем', description: 'Защищает голову от ударов.', category: 'одежда', image: imagePath('helmet.png'), details: { defense: 12, durability: 160, rarity: 'обычный' } },
+	{ id: 9, name: 'Броня', description: 'Торс-пластина средней тяжести.', category: 'одежда', image: imagePath('armor.png'), details: { defense: 30, durability: 220, rarity: 'редкий' } },
+	{ id: 10, name: 'Бинт', description: 'Лечите себя или других с помощью этого бинта. Левой кнопки мыши Вы лечите себ...', category: 'медикаменты', image: imagePath('bandage.png'), details: { healing: 25, rarity: 'обычный' } },
+	{ id: 11, name: 'Аптечка', description: 'Быстро восстанавливает здоровье.', category: 'медикаменты', image: imagePath('big-box.png'), details: { healing: 50, rarity: 'редкий' } }
 ];
 
 const initialState: ItemsState = {

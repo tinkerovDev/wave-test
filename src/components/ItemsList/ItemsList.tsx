@@ -11,24 +11,36 @@ export const ItemsList = ({ onItemClick }: { onItemClick: (i: Item) => void }) =
 	const { items, search, category, page, itemsPerPage, isLoading } = useSelector((s: RootState) => s.items);
 
 	const filtered = useMemo(() => {
-		return items.filter((it) => {
-			const matchesSearch = it.name.toLowerCase().includes(search.toLowerCase()) || it.description.toLowerCase().includes(search.toLowerCase());
-			const matchesCat = category === 'all' || it.category === category;
-			return matchesSearch && matchesCat;
-		});
+		const order: Record<Item['category'], number> = { 'оружие': 0, 'ресурс': 1, 'одежда': 2, 'медикаменты': 3 };
+		return items
+			.filter((it) => {
+				const q = search.toLowerCase();
+				const matchesSearch = it.name.toLowerCase().includes(q) || it.description.toLowerCase().includes(q);
+				const matchesCat = category === 'all' || it.category === category;
+				return matchesSearch && matchesCat;
+			})
+			.sort((a, b) => {
+				const byCat = order[a.category] - order[b.category];
+				if (byCat !== 0) return byCat;
+				return a.id - b.id;
+			});
 	}, [items, search, category]);
 
 	const displayed = useMemo(() => filtered.slice(0, page * itemsPerPage), [filtered, page, itemsPerPage]);
 
+	const hasMore = useMemo(() => displayed.length < filtered.length, [displayed.length, filtered.length]);
+
 	const observer = useRef<IntersectionObserver | null>(null);
 	const lastRef = useCallback((node: HTMLDivElement | null) => {
-		if (isLoading) return;
+		if (isLoading || !hasMore) return;
 		if (observer.current) observer.current.disconnect();
 		observer.current = new IntersectionObserver((entries) => {
-			if (entries[0].isIntersecting) dispatch(loadNextPage());
-		});
+			if (entries[0].isIntersecting && hasMore && !isLoading) {
+				dispatch(loadNextPage());
+			}
+		}, { root: null, rootMargin: '200px 0px', threshold: 0 });
 		if (node) observer.current.observe(node);
-	}, [dispatch, isLoading]);
+	}, [dispatch, isLoading, hasMore]);
 
 	useEffect(() => {
 		if (page > 1) {
@@ -47,6 +59,7 @@ export const ItemsList = ({ onItemClick }: { onItemClick: (i: Item) => void }) =
 
 			{isLoading && <div className={styles.loader}>Loading…</div>}
 			{displayed.length === 0 && !isLoading && <div className={styles.empty}>Ничего не найдено</div>}
+			{!hasMore && !isLoading && <div style={{ height: 8 }} />}
 		</div>
 	);
 };

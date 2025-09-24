@@ -1,9 +1,11 @@
 .list {
-    max-height: 384px;
+    max-height: 480px;
     overflow-y: auto;
     background:#0d0d0d;
     border: none;
     border-radius: 12px;
+    margin-bottom: 20px; /* always-visible gap under the scroll area */
+    box-sizing: border-box;
 }
 
 .loader {

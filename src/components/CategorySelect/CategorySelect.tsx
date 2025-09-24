@@ -19,6 +19,11 @@ export const CategorySelect = () => {
     const value = useSelector((s: RootState) => s.items.category);
     const [open, setOpen] = useState(false);
     const wrapRef = useRef<HTMLDivElement | null>(null);
+    const base = import.meta.env.BASE_URL;
+    const cssVars = {
+        ['--left-icon-url' as any]: `url(${base}items/vector.png)`,
+        ['--left-icon-active-url' as any]: `url(${base}items/vector-active.png)`,
+    } as React.CSSProperties;
 
     useEffect(() => {
         const onDoc = (e: MouseEvent) => {
@@ -32,7 +37,7 @@ export const CategorySelect = () => {
     const currentLabel = options.find(o => o.value === value)?.label ?? '';
 
     return (
-        <div ref={wrapRef} className={`${styles.selectWrap} ${open ? styles.open : ''}`}>
+        <div ref={wrapRef} className={`${styles.selectWrap} ${open ? styles.open : ''}`} style={cssVars}>
             <button type="button" className={styles.header} onClick={() => setOpen(v => !v)} aria-haspopup="listbox" aria-expanded={open}>
                 <span className={styles.leftIcon} aria-hidden="true" />
                 <span className={styles.label}>{currentLabel}</span>
