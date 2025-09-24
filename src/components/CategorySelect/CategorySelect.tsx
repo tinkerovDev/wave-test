@@ -36,8 +36,9 @@ export const CategorySelect = () => {
 
     const currentLabel = options.find(o => o.value === value)?.label ?? '';
 
+    const isSelected = value !== 'all';
     return (
-        <div ref={wrapRef} className={`${styles.selectWrap} ${open ? styles.open : ''}`} style={cssVars}>
+        <div ref={wrapRef} className={`${styles.selectWrap} ${open ? styles.open : ''} ${isSelected ? styles.selected : ''}`} style={cssVars}>
             <button type="button" className={styles.header} onClick={() => setOpen(v => !v)} aria-haspopup="listbox" aria-expanded={open}>
                 <span className={styles.leftIcon} aria-hidden="true" />
                 <span className={styles.label}>{currentLabel}</span>

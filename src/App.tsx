@@ -31,7 +31,7 @@ function App() {
           <h1 className={styles.title}>{t('app.title')}</h1>
         </div>
         <div className={styles.rightControls}>
-          <span style={{ color:'#d1d5db', fontSize:14 }}>{t('app.total')}: <b style={{ color:'#fff' }}>{total}</b></span>
+          <span style={{ color:'#808080', fontSize:14 }}>{t('app.total')}: <b style={{ color:'#fff' }}>{total}</b></span>
           <CloseButton onClick={() => setOpen(false)} />
         </div>
       </div>

@@ -1,11 +1,22 @@
 .btn {
     width: 40px;
     height: 40px;
-    border-radius: 8px;
+    border-radius: 4px;
     border: none;
     background: #1f1f1f;
     cursor: pointer;
     position: relative;
+}
+
+.btn:focus,
+.btn:focus-visible,
+.btn:active {
+    outline: none;
+    border: none;
+}
+
+.btn::-moz-focus-inner {
+    border: 0;
 }
 
 .btn::before {
@@ -26,9 +37,9 @@
 }
 
 .btn:hover {
-    background: #2b2b2b;
+    background: #595959;
 }
 
 .btn:active {
-    background: #3a3a3a;
+    background: #1A1A1A;
 }

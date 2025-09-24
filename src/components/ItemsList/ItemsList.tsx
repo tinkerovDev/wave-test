@@ -51,15 +51,16 @@ export const ItemsList = ({ onItemClick }: { onItemClick: (i: Item) => void }) =
 
 	return (
 		<div className={styles.list}>
-			{displayed.map((item, idx) => (
-				<div key={item.id} ref={idx === displayed.length - 1 ? lastRef : null}>
-					<ItemCard item={item} onClick={onItemClick} />
-				</div>
-			))}
+			<div className={styles.scrollContent}>
+				{displayed.map((item, idx) => (
+					<div key={item.id} ref={idx === displayed.length - 1 ? lastRef : null}>
+						<ItemCard item={item} onClick={onItemClick} />
+					</div>
+				))}
 
-			{isLoading && <div className={styles.loader}>Loading…</div>}
-			{displayed.length === 0 && !isLoading && <div className={styles.empty}>Ничего не найдено</div>}
-			{!hasMore && !isLoading && <div style={{ height: 8 }} />}
+				{displayed.length === 0 && !isLoading && <div className={styles.empty}>Ничего не найдено</div>}
+				{!hasMore && !isLoading && <div style={{ height: 8 }} />}
+			</div>
 		</div>
 	);
 };
